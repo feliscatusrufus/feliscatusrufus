@@ -1,0 +1,171 @@
+/* Mengimpor font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Definisikan variabel warna untuk tema gelap dan terang */
+:root {
+    /* Warna untuk Tema Gelap */
+    --background-dark: #2c2c2c;
+    --text-light: #fff;
+    --text-dark: #212529;
+    --date-color-dark: #6c757d;
+    --button-dark-bg: #333;
+    --button-dark-bg-hover: #555;
+
+    /* Warna untuk Tema Terang */
+    --background-light: #F5DEB3;
+    --text-light-dark: #000;
+    --date-color-light: #6c757d;
+    --button-light-bg: #e9ecef;
+    --button-light-bg-hover: #ced4da;
+}
+
+/* Tema Gelap */
+body.dark-theme {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+body.dark-theme .video-section {
+    height: 100vh;
+}
+
+body.dark-theme .video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.dark-theme .text-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--background-dark);
+}
+
+body.dark-theme .text-section .content {
+    max-width: 600px;
+}
+
+body.dark-theme .text-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+body.dark-theme .text-section p.date {
+    font-size: 1.25rem;
+    color: var(--date-color-dark);
+}
+
+body.dark-theme .text-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body.dark-theme .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    background: var(--button-dark-bg);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1050;
+}
+
+body.dark-theme .close-button:hover {
+    background: var(--button-dark-bg-hover);
+}
+
+/* Tema Terang */
+body.light-theme {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light-dark);
+}
+
+body.light-theme .video-section {
+    height: 100vh;
+}
+
+body.light-theme .video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.light-theme .text-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--background-light);
+}
+
+body.light-theme .text-section .content {
+    max-width: 600px;
+}
+
+body.light-theme .text-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-light-dark);
+}
+
+body.light-theme .text-section p.date {
+    font-size: 1.25rem;
+    color: var(--date-color-light);
+}
+
+body.light-theme .text-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body.light-theme .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--text-light-dark);
+    text-decoration: none;
+    background: var(--button-light-bg);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+}
+
+body.light-theme .close-button:hover {
+    background: var(--button-light-bg-hover);
+}
+
+/* Red card background */
+.card.red {
+    background-color: red;
+}
+
+/* Green card background */
+.card.green {
+    background-color: green;
+}
+
+/* Orange card background */
+.card.orange {
+    background-color: orange;
+}
