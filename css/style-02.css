@@ -1,0 +1,13 @@
+.video-section {
+    position: relative;
+}
+
+/* Video pertama tampil secara default */
+#video1 {
+    display: block;
+}
+
+/* Video kedua disembunyikan pada awalnya */
+#video2 {
+    display: none;
+}
