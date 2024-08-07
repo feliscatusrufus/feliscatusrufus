@@ -1,8 +1,25 @@
 const video1 = document.getElementById('video1');
         const video2 = document.getElementById('video2');
 
-        let clickCount = 0;
-        let clickTimer = null;
+        function initializeVideos() {
+            // Start with video1 visible and playing
+            video1.style.display = 'block';
+            video2.style.display = 'none';
+            video1.play();
+
+            // Event listeners to ensure only one video plays at a time
+            video1.addEventListener('play', function () {
+                if (!video2.paused) {
+                    video2.pause();
+                }
+            });
+
+            video2.addEventListener('play', function () {
+                if (!video1.paused) {
+                    video1.pause();
+                }
+            });
+        }
 
         function switchVideo() {
             if (video1.style.display === 'block') {
@@ -15,6 +32,10 @@ const video1 = document.getElementById('video1');
                 video1.play();
             }
         }
+
+        let clickCount = 0;
+        let clickTimer = null;
+        let startX;
 
         function handleTripleClick() {
             clickCount++;
@@ -29,19 +50,29 @@ const video1 = document.getElementById('video1');
             }
         }
 
-        // Ensure only one video plays at a time
-        video1.addEventListener('play', function () {
-            if (!video2.paused) {
-                video2.pause();
-            }
-        });
+        function handleTouchStart(event) {
+            startX = event.touches[0].clientX;
+        }
 
-        video2.addEventListener('play', function () {
-            if (!video1.paused) {
-                video1.pause();
+        function handleTouchMove(event) {
+            if (!startX) return;
+            let currentX = event.touches[0].clientX;
+            let diffX = startX - currentX;
+
+            if (Math.abs(diffX) > 50) {
+                switchVideo();
+                startX = null; // Reset startX after switching video
             }
-        });
+        }
+
+        // Initialize videos on page load
+        window.addEventListener('load', initializeVideos);
 
         // Handle the triple click to switch videos
         video1.addEventListener('click', handleTripleClick);
         video2.addEventListener('click', handleTripleClick);
+
+        // Handle swipe gesture to switch videos
+        const videoSection = document.getElementById('videoSection');
+        videoSection.addEventListener('touchstart', handleTouchStart, false);
+        videoSection.addEventListener('touchmove', handleTouchMove, false);
