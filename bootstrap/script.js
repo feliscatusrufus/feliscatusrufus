@@ -99,3 +99,41 @@ function getMonthNumber(monthName) {
     };
     return months[monthName] || '00'; // Return '00' jika bulan tidak dikenali
 }
+
+// NIGHT AND DAY MODE
+const modeToggle = document.getElementById('modeToggle');
+    const modeIcon = document.getElementById('modeIcon');
+    const body = document.body;
+
+    // Fungsi untuk menerapkan mode yang disimpan
+    function applySavedMode() {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode === 'light') {
+            body.classList.add('light-mode');
+            modeIcon.classList.remove('bi-sun');
+            modeIcon.classList.add('bi-moon');
+        } else {
+            body.classList.remove('light-mode');
+            modeIcon.classList.remove('bi-moon');
+            modeIcon.classList.add('bi-sun');
+        }
+    }
+
+    // Terapkan mode yang disimpan saat halaman dimuat
+    applySavedMode();
+
+    // Tambahkan event listener untuk tombol mode toggle
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLightMode = body.classList.contains('light-mode');
+        localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+
+        // Ubah ikon berdasarkan mode
+        if (isLightMode) {
+            modeIcon.classList.remove('bi-sun');
+            modeIcon.classList.add('bi-moon');
+        } else {
+            modeIcon.classList.remove('bi-moon');
+            modeIcon.classList.add('bi-sun');
+        }
+    });

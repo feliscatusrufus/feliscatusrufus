@@ -135,3 +135,27 @@ img.rounded-circle {
 .card-title-bold {
     font-weight: bold;
 }
+
+
+/* styles.css */
+
+/* Light Mode Styles */
+.light-mode {
+    background-color: #f5f5f5; /* Latar belakang terang */
+    color: #333; /* Warna teks gelap */
+}
+
+.light-mode .card {
+    background-color: #fff; /* Latar belakang kartu terang */
+    color: #333; /* Warna teks gelap */
+}
+
+/* Gaya untuk tombol light mode */
+.btn-light-mode {
+    background-color: #f0f0f0; /* Warna latar belakang tombol light mode */
+    color: #333; /* Warna teks tombol */
+}
+
+.btn-light-mode:hover {
+    background-color: #ddd; /* Warna latar belakang tombol saat hover */
+}
